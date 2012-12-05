@@ -1,0 +1,43 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pm="http://primefaces.org/mobile">
+
+
+	<pm:page title="Hello World">
+		<pm:view id="main">
+			<pm:header title="Prime">
+				<f:facet name="left">
+					<p:button value="Back" icon="back" href="#main" />
+				</f:facet>
+				<f:facet name="right">
+					<p:button value="Settings" icon="gear" href="#settings" />
+				</f:facet>
+			</pm:header>
+			
+			<pm:content>
+
+				<pm:buttonGroup>
+					<p:commandButton value="Yes" />
+					<p:commandButton value="No" />
+				</pm:buttonGroup>
+
+				<h:outputText value="1" />
+				<p:inputText id="age" type="number" value="#{bean.value}" />
+			</pm:content>
+
+			<pm:buttonGroup>
+				<p:commandButton value="Yes" />
+				<p:commandButton value="No" />
+			</pm:buttonGroup>
+
+
+
+		</pm:view>
+		<pm:buttonGroup>
+			<p:commandButton value="Yes" />
+			<p:commandButton value="No" />
+		</pm:buttonGroup>
+	</pm:page>
+</f:view>
