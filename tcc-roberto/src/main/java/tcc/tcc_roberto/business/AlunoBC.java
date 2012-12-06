@@ -13,10 +13,14 @@ public class AlunoBC extends DelegateCrud<Aluno, Long, AlunoDAO> {
 
 	@Startup
 	@Transactional
-	protected void load() {
+	public void load() {
 		if (findAll().isEmpty()) {
 			insert(new Aluno("0001", "Roberto Lopes", "123"));
 		}
+	}
+
+	public Aluno findAlunoByMatricula(String matricula, String senha) {
+		return getDelegate().findUserByMatricula(matricula, senha);
 	}
 
 }
