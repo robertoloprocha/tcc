@@ -1,11 +1,14 @@
 package tcc.tcc_roberto.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Disciplina implements Serializable {
@@ -20,8 +23,12 @@ public class Disciplina implements Serializable {
 	@Column
 	private Integer cargaHoraria;
 
+	@OneToMany
+	private List<Nota> notas;
+
 	public Disciplina() {
 		super();
+		this.notas = new ArrayList<Nota>();
 	}
 
 	public Long getId() {
@@ -46,6 +53,14 @@ public class Disciplina implements Serializable {
 
 	public void setCargaHoraria(Integer cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
+	}
+
+	public List<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
 	}
 
 	@Override
