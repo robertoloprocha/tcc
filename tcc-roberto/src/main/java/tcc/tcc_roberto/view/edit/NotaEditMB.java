@@ -1,4 +1,4 @@
-package tcc.tcc_roberto.view.list;
+package tcc.tcc_roberto.view.edit;
 
 import tcc.tcc_roberto.domain.Nota;
 import br.gov.frameworkdemoiselle.stereotype.ViewController;
