@@ -1,0 +1,40 @@
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/main_mobile.xhtml" contentType="text/html"
+	renderKitId="PRIMEFACES_MOBILE">
+	<pm:page title="Login">
+	
+			<!-- Main View -->
+			<pm:view id="main">
+			
+				<pm:header title="Sistema de Notas">
+           		</pm:header>
+			
+				<pm:content>
+					<h:form>
+										
+					<p:inputText id="matricula"  label="#{messages['login.label.matricula']}: "
+					value="#{bookmarkEditMB.bean.id}"/>
+					
+					
+					<p:inputText id="senha"  label="#{messages['login.label.senha']}: "
+						value="#{bookmarkEditMB.bean.description}" required="true"/>					
+					
+										
+					<pm:buttonGroup orientation="horizontal" >
+						<p:commandButton value="Entrar"
+							action="#{bookmarkEditMB.update}" icon="check"
+							iconPosition="center" />
+					</pm:buttonGroup>
+										
+					</h:form>
+				</pm:content>
+			</pm:view>
+		</pm:page>
+	
+</f:view>
