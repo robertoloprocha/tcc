@@ -8,9 +8,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TB_DISCIPLINA")
 public class Disciplina implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -26,9 +31,14 @@ public class Disciplina implements Serializable {
 	@OneToMany
 	private List<Nota> notas;
 
+	@ManyToMany
+	@JoinTable(name = "TB_ALUNO_DISCIPLINA", joinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"))
+	private List<Aluno> alunos;
+
 	public Disciplina() {
 		super();
 		this.notas = new ArrayList<Nota>();
+		this.alunos = new ArrayList<Aluno>();
 	}
 
 	public Long getId() {
@@ -61,6 +71,14 @@ public class Disciplina implements Serializable {
 
 	public void setNotas(List<Nota> notas) {
 		this.notas = notas;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	@Override

@@ -15,7 +15,6 @@ public class NotaBC extends DelegateCrud<Nota, Long, NotaDAO> {
 	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
-			//insert(new Nota("Computação Paralela", 20, "123"));
 		}
 	}
 

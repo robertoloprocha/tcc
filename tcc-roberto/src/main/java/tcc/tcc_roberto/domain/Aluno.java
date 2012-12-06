@@ -8,9 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TB_ALUNO")
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,6 +34,7 @@ public class Aluno implements Serializable {
 	private String telefone;
 
 	@ManyToMany
+	@JoinTable(name="TB_ALUNO_DISCIPLINA",joinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"))
 	private List<Disciplina> disciplinas;
 
 	public Aluno(String matricula, String nome, String senha) {

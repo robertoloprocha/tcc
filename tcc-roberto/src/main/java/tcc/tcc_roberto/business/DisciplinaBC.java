@@ -1,5 +1,8 @@
 package tcc.tcc_roberto.business;
 
+import java.util.List;
+
+import tcc.tcc_roberto.domain.Aluno;
 import tcc.tcc_roberto.domain.Disciplina;
 import tcc.tcc_roberto.persistence.DisciplinaDAO;
 import br.gov.frameworkdemoiselle.annotation.Startup;
@@ -15,8 +18,12 @@ public class DisciplinaBC extends DelegateCrud<Disciplina, Long, DisciplinaDAO> 
 	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
-			//insert(new Disciplina("Computação Paralela", 20, "123"));
+			// insert(new Disciplina("Computação Paralela", 20, "123"));
 		}
+	}
+
+	public List<Disciplina> findDisciplinasByAluno(Aluno aluno) {
+		return getDelegate().findDisciplinasByAluno(aluno);
 	}
 
 }
