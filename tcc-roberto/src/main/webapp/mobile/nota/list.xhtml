@@ -8,10 +8,17 @@
 		<pm:view id="main">
 			<pm:header title="Notas" />
 			<pm:content>
+				<h:outputText value="Aluno #{sessionMB.aluno.nome}" />
 				<h:form>
 					<p:dataTable value="#{disciplinaListMB.resultList}" var="disciplina" emptyMessage="Não há disciplinas para o aluno">
 						<p:column headerText="Disciplina">
 							<h:outputText value="#{disciplina.descricao}" />
+						</p:column>
+						<p:column headerText="N1">
+							<h:outputText value="#{disciplina.n1}" />
+						</p:column>
+						<p:column headerText="N2">
+							<h:outputText value="#{disciplina.n2}" />
 						</p:column>
 					</p:dataTable>
 				</h:form>
