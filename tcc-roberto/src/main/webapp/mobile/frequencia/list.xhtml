@@ -1,0 +1,32 @@
+
+<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/main_mobile.xhtml" contentType="text/html" renderKitId="PRIMEFACES_MOBILE">
+	<pm:page title="Notas">
+
+		<!-- Main View -->
+		<pm:view id="main">
+			<pm:header title="Notas" />
+			<pm:content>
+				<p:panelGrid columns="2" style="width: 100%">
+					<h:outputText value="Aluno" />
+					<h:outputText value="#{sessionMB.aluno.nome}" />
+					<h:outputText value="Disciplina" />
+					<h:outputText value="#{frequenciaListMB.disciplina}" />
+				</p:panelGrid>
+				<p:spacer height="10"/>
+				<h:form>
+					<p:dataTable value="#{frequenciaListMB.resultList}" var="frequencia" emptyMessage="Não há disciplinas para o aluno">
+						<p:column headerText="T. Faltas">
+							<h:outputText value="#{frequencia.quantTotalFaltas}" />
+						</p:column>
+						<p:column headerText="L. Faltas">
+							<h:outputText value="#{frequencia.quantLimiteFaltas}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</pm:content>
+		</pm:view>
+	</pm:page>
+
+</f:view>
