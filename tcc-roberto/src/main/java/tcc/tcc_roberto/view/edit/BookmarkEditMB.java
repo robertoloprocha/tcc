@@ -1,4 +1,4 @@
-package tcc.tcc_roberto.view;
+package tcc.tcc_roberto.view.edit;
 
 import javax.inject.Inject;
 import br.gov.frameworkdemoiselle.annotation.PreviousView;
