@@ -23,8 +23,8 @@ public class DisciplinaBC extends DelegateCrud<Disciplina, Long, DisciplinaDAO> 
 		}
 	}
 
-	public List<Disciplina> findDisciplinasByAluno(Aluno aluno) {
-		return getDelegate().findDisciplinasByAluno(aluno);
+	public List<Disciplina> findDisciplinasByAlunoAndAnoAndSemestre(Aluno aluno, Integer ano, Integer semestre) {
+		return getDelegate().findDisciplinasByAlunoAndAnoAndSemestre(aluno, ano, semestre);
 	}
 
 }
