@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno implements Serializable {
@@ -32,6 +31,13 @@ public class Aluno implements Serializable {
 
 	@ManyToMany
 	private List<Disciplina> disciplinas;
+
+	public Aluno(String matricula, String nome, String senha) {
+		super();
+		this.matricula = matricula;
+		this.nome = nome;
+		this.senha = senha;
+	}
 
 	public Aluno() {
 		super();
