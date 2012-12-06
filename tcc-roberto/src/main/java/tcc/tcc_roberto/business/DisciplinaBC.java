@@ -18,7 +18,8 @@ public class DisciplinaBC extends DelegateCrud<Disciplina, Long, DisciplinaDAO> 
 	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
-			// insert(new Disciplina("Computação Paralela", 20, "123"));
+			insert(new Disciplina("Computação Paralela", 20));
+			insert(new Disciplina("Engenharia de Software", 40));
 		}
 	}
 

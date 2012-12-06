@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Frequencia implements Serializable {
@@ -20,19 +22,22 @@ public class Frequencia implements Serializable {
 
 	@Column
 	private String mes;
+
+	@OneToOne
+	private Disciplina disciplina;
+
 	@Column
-	private int quantFaltas;
-	
-	public Frequencia(String mes, int quantFaltas) {
+	private int quantTotalFaltas;
+
+	@Column
+	private Integer quantLimiteFaltas;
+
+	public Frequencia(String mes, int quantTotalFaltas) {
 		super();
 		this.mes = mes;
-		this.quantFaltas = quantFaltas;	
+		this.quantTotalFaltas = quantTotalFaltas;
+		this.disciplina = new Disciplina();
 	}
-
-//	public Frequencia() {
-//		super();
-//		this.disciplinas = new ArrayList<Disciplina>();
-//	}
 
 	public Long getId() {
 		return id;
@@ -42,7 +47,6 @@ public class Frequencia implements Serializable {
 		this.id = id;
 	}
 
-	
 	public String getMes() {
 		return mes;
 	}
@@ -51,14 +55,29 @@ public class Frequencia implements Serializable {
 		this.mes = mes;
 	}
 
-	public int getQuantFaltas() {
-		return quantFaltas;
+	public int getQuantTotalFaltas() {
+		return quantTotalFaltas;
 	}
 
-	public void setQuantFaltas(int quantFaltas) {
-		this.quantFaltas = quantFaltas;
+	public void setQuantTotalFaltas(int quantTotalFaltas) {
+		this.quantTotalFaltas = quantTotalFaltas;
 	}
 
+	public Integer getQuantLimiteFaltas() {
+		return quantLimiteFaltas;
+	}
+
+	public void setQuantLimiteFaltas(Integer quantLimiteFaltas) {
+		this.quantLimiteFaltas = quantLimiteFaltas;
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
 
 	@Override
 	public int hashCode() {
@@ -66,7 +85,7 @@ public class Frequencia implements Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((mes == null) ? 0 : mes.hashCode());
-		result = prime * result + quantFaltas;
+		result = prime * result + quantTotalFaltas;
 		return result;
 	}
 
@@ -89,17 +108,14 @@ public class Frequencia implements Serializable {
 				return false;
 		} else if (!mes.equals(other.mes))
 			return false;
-		if (quantFaltas != other.quantFaltas)
+		if (quantTotalFaltas != other.quantTotalFaltas)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Frequencia [id=" + id + ", mes=" + mes + ", quantFaltas=" + quantFaltas + "]";
+		return "Frequencia [id=" + id + ", mes=" + mes + ", quantFaltas=" + quantTotalFaltas + "]";
 	}
-
-
-	
 
 }

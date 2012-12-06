@@ -28,17 +28,28 @@ public class Disciplina implements Serializable {
 	@Column
 	private Integer cargaHoraria;
 
-	@OneToMany
-	private List<Nota> notas;
+	@Column
+	private Double n1;
+	@Column
+	private Double n2;
+	@Column
+	private Integer ano;
+	@Column
+	private Integer semestre;
 
 	@ManyToMany
-	@JoinTable(name = "TB_ALUNO_DISCIPLINA", joinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"))
+	@JoinTable(name = "TB_ALUNO_DISCIPLINA", joinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"))
 	private List<Aluno> alunos;
 
 	public Disciplina() {
 		super();
-		this.notas = new ArrayList<Nota>();
 		this.alunos = new ArrayList<Aluno>();
+	}
+
+	public Disciplina(String descricao, Integer cargaHoraria) {
+		super();
+		this.descricao = descricao;
+		this.cargaHoraria = cargaHoraria;
 	}
 
 	public Long getId() {
@@ -65,20 +76,44 @@ public class Disciplina implements Serializable {
 		this.cargaHoraria = cargaHoraria;
 	}
 
-	public List<Nota> getNotas() {
-		return notas;
-	}
-
-	public void setNotas(List<Nota> notas) {
-		this.notas = notas;
-	}
-
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
 
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
+	}
+
+	public Double getN1() {
+		return n1;
+	}
+
+	public void setN1(Double n1) {
+		this.n1 = n1;
+	}
+
+	public Double getN2() {
+		return n2;
+	}
+
+	public void setN2(Double n2) {
+		this.n2 = n2;
+	}
+
+	public Integer getAno() {
+		return ano;
+	}
+
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+
+	public Integer getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(Integer semestre) {
+		this.semestre = semestre;
 	}
 
 	@Override

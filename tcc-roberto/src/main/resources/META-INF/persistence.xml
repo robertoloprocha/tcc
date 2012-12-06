@@ -9,7 +9,7 @@
 
 		<class>tcc.tcc_roberto.domain.Aluno</class>
 		<class>tcc.tcc_roberto.domain.Disciplina</class>
-		<class>tcc.tcc_roberto.domain.Nota</class>
+		<class>tcc.tcc_roberto.domain.Frequencia</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

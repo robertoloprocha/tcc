@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,8 +35,11 @@ public class Aluno implements Serializable {
 	private String telefone;
 
 	@ManyToMany
-	@JoinTable(name="TB_ALUNO_DISCIPLINA",joinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"))
+	@JoinTable(name = "TB_ALUNO_DISCIPLINA", joinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "disciplina_id", referencedColumnName = "id"))
 	private List<Disciplina> disciplinas;
+
+	@OneToMany
+	private List<Frequencia> frequencias;
 
 	public Aluno(String matricula, String nome, String senha) {
 		super();
@@ -103,6 +107,14 @@ public class Aluno implements Serializable {
 
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
+	}
+
+	public List<Frequencia> getFrequencias() {
+		return frequencias;
+	}
+
+	public void setFrequencias(List<Frequencia> frequencias) {
+		this.frequencias = frequencias;
 	}
 
 	@Override
