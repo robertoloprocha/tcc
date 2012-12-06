@@ -8,7 +8,9 @@
 	<persistence-unit name="tcc-ds" transaction-type="RESOURCE_LOCAL">
 		<non-jta-data-source>java:/TCCDS</non-jta-data-source>
 		
-		<class>tcc.tcc_roberto.domain.Bookmark</class>
+		<class>tcc.tcc_roberto.domain.Aluno</class>
+		<class>tcc.tcc_roberto.domain.Disciplina</class>
+		<class>tcc.tcc_roberto.domain.Nota</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
