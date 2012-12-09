@@ -1,7 +1,12 @@
 
-<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/main_mobile.xhtml" contentType="text/html" renderKitId="PRIMEFACES_MOBILE">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/main_mobile.xhtml" contentType="text/html"
+	renderKitId="PRIMEFACES_MOBILE">
 	<pm:page title="Notas">
 
 		<!-- Main View -->
@@ -11,14 +16,15 @@
 				<h:outputText value="Aluno: #{sessionMB.aluno.nome}" />
 				<h:form>
 					<h:outputText value="Selecione a sua Disciplina: " />
-					<h:selectOneMenu value="#{frequenciaListMB.disciplina}">
+					<h:selectOneMenu value="#{frequenciaListMB.disciplina}"  onchange="submit()" valueChangeListener="#{frequenciaListMB.valueChangedDisciplina}">
 						<f:selectItem itemLabel="Selecione a Disciplina" itemValue="Selecione a Disciplina" />
-						<f:selectItems value="#{disciplinaListMB.resultList}" var="disciplina" itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}"/>
-						
+						<f:selectItems value="#{disciplinaListMB.resultList}" var="disciplina" itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}" />
+
 					</h:selectOneMenu>
-					
+
 					<h:outputText value="Selecione o mês:" />
-					<h:selectOneMenu value="#{frequenciaListMB.mes}" onchange="submit()" valueChangeListener="#{frequenciaListMB.valueChangedMes}">
+					<h:selectOneMenu value="#{frequenciaListMB.mes}" onchange="submit()"
+						valueChangeListener="#{frequenciaListMB.valueChangedMes}">
 						<f:selectItem itemLabel="Selecione o Mês" itemValue="Selecione o Mês" />
 						<f:selectItem itemLabel="Janeiro" itemValue="Janeiro" />
 						<f:selectItem itemLabel="Fevereiro" itemValue="Fevereiro" />

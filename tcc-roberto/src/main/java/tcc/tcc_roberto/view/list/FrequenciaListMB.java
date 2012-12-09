@@ -3,6 +3,7 @@ package tcc.tcc_roberto.view.list;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
@@ -29,9 +30,9 @@ public class FrequenciaListMB extends AbstractListPageBean<Frequencia, Long> {
 
 	private String mes;
 
-	public void valueChangedDisciplina(AjaxBehaviorEvent vce){
+	public void valueChangedDisciplina(ValueChangeEvent vce){
 		System.out.println("----------ENTROU NO LISTENER DISCIPLINA-------------");
-		this.disciplina = (Disciplina) vce.getSource();
+		this.disciplina = (Disciplina) vce.getNewValue();
 		System.out.println("DISCIPLINA: " + disciplina.getDescricao());
 	}
 	
