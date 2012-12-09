@@ -6,16 +6,20 @@
 
 		<!-- Main View -->
 		<pm:view id="main">
-			<pm:header title="Notas" />
+			<pm:header title="Frequência" />
 			<pm:content>
 				<h:outputText value="Aluno: #{sessionMB.aluno.nome}" />
 				<h:form>
 					<h:outputText value="Selecione a sua Disciplina: " />
 					<h:selectOneMenu value="#{frequenciaListMB.disciplina}">
-						<f:selectItems value="#{disciplinaListMB.resultList}" var="disciplina" itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}" />
+						<f:selectItem itemLabel="Selecione a Disciplina" itemValue="Selecione a Disciplina" />
+						<f:selectItems value="#{disciplinaListMB.resultList}" var="disciplina" itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}"/>
+						
 					</h:selectOneMenu>
+					
 					<h:outputText value="Selecione o mês:" />
-					<h:selectOneMenu value="#{frequenciaListMB.mes}">
+					<h:selectOneMenu value="#{frequenciaListMB.mes}" onchange="submit()" valueChangeListener="#{frequenciaListMB.valueChangedMes}">
+						<f:selectItem itemLabel="Selecione o Mês" itemValue="Selecione o Mês" />
 						<f:selectItem itemLabel="Janeiro" itemValue="Janeiro" />
 						<f:selectItem itemLabel="Fevereiro" itemValue="Fevereiro" />
 						<f:selectItem itemLabel="Março" itemValue="Marco" />

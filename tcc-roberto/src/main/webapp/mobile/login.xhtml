@@ -10,6 +10,7 @@
 			<pm:content>
 				<h:form id="form-login">
 					<p:inputText label="Matricula" id="matricula" value="#{sessionMB.matricula}" />
+					<h:outputText value="Senha" />
 					<p:password label="Senha" id="senha" value="#{sessionMB.senha}" />
 					<p:spacer height="10" />
 					<h:commandButton value="Entrar" action="#{sessionMB.login()}" />

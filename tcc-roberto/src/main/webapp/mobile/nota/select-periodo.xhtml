@@ -1,7 +1,12 @@
 
-<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/main_mobile.xhtml" contentType="text/html" renderKitId="PRIMEFACES_MOBILE">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/main_mobile.xhtml" contentType="text/html"
+	renderKitId="PRIMEFACES_MOBILE">
 	<pm:page title="Notas">
 
 		<!-- Main View -->
@@ -11,16 +16,18 @@
 				<h:outputText value="Aluno: #{sessionMB.aluno.nome}" />
 				<h:form>
 					<h:outputText value="Selecione o Ano: " />
-					<h:selectOneMenu value="#{disciplinaListMB.ano}">
+					<h:selectOneMenu value="#{disciplinaListMB.ano}"
+						onchange="submit()"
+						valueChangeListener="#{disciplinaListMB.valueChangedAno}">
+						<f:selectItem itemLabel="Selecione o Ano" itemValue="Selecione o Ano" />
 						<f:selectItem itemLabel="2012" itemValue="2012" />
 						<f:selectItem itemLabel="2011" itemValue="2011" />
-						<f:selectItem itemLabel="2010" itemValue="2011" />
-						<f:selectItem itemLabel="2009" itemValue="2009" />
-						<f:selectItem itemLabel="2008" itemValue="2008" />
-						<f:selectItem itemLabel="2007" itemValue="2007" />
+						<f:selectItem itemLabel="2010" itemValue="2010" />
 					</h:selectOneMenu>
-					<h:outputText value="Selecione o Semestre:" />
-					<h:selectOneMenu value="#{frequenciaListMB.mes}">
+					<h:outputText value="Selecione o Semestre:"  />
+					<h:selectOneMenu value="#{disciplinaListMB.semestre}" onchange="submit()"
+						valueChangeListener="#{disciplinaListMB.valueChangedSemestre}">
+						<f:selectItem itemLabel="Selecione o Semestre" itemValue="Selecione o Semestre" />
 						<f:selectItem itemLabel="Primeiro" itemValue="1" />
 						<f:selectItem itemLabel="Segundo" itemValue="2" />
 					</h:selectOneMenu>

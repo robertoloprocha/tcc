@@ -3,7 +3,11 @@ package tcc.tcc_roberto.view.list;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.event.ValueChangeListener;
 import javax.inject.Inject;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import tcc.tcc_roberto.business.DisciplinaBC;
 import tcc.tcc_roberto.domain.Disciplina;
@@ -25,9 +29,25 @@ public class DisciplinaListMB extends AbstractListPageBean<Disciplina, Long> {
 	private Integer ano;
 
 	private Integer semestre;
+	
+	public void valueChangedAno(ValueChangeEvent vce) {
+		System.out.println("------ENTROU NO LISTENER-------");
+		this.ano = (Integer) vce.getNewValue();
+		System.out.println("ANO: "+ano);
+		
+	}
+	
+	public void valueChangedSemestre(ValueChangeEvent vce) {
+		System.out.println("------ENTROU NO LISTENER-------");
+		this.semestre = (Integer) vce.getNewValue();
+		System.out.println("SEMESTRE: "+semestre);
+		
+	}
 
 	@Override
 	protected List<Disciplina> handleResultList() {
+		System.out.println("Ano: "+ano);
+		System.out.println("Semestre: "+semestre);
 		return bc.findDisciplinasByAlunoAndAnoAndSemestre(sessionMB.getAluno(), ano, semestre);
 	}
 

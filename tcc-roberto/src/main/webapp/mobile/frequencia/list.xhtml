@@ -6,13 +6,13 @@
 
 		<!-- Main View -->
 		<pm:view id="main">
-			<pm:header title="Notas" />
+			<pm:header title="Frequência" />
 			<pm:content>
 				<p:panelGrid columns="2" style="width: 100%">
 					<h:outputText value="Aluno" />
 					<h:outputText value="#{sessionMB.aluno.nome}" />
 					<h:outputText value="Disciplina" />
-					<h:outputText value="#{frequenciaListMB.disciplina}" />
+					<h:outputText value="#{frequenciaListMB.disciplina.descricao}" />
 				</p:panelGrid>
 				<p:spacer height="10"/>
 				<h:form>

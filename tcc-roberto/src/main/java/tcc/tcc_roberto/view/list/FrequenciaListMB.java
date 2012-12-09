@@ -3,6 +3,8 @@ package tcc.tcc_roberto.view.list;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 
 import tcc.tcc_roberto.business.FrequenciaBC;
@@ -27,8 +29,22 @@ public class FrequenciaListMB extends AbstractListPageBean<Frequencia, Long> {
 
 	private String mes;
 
+	public void valueChangedDisciplina(AjaxBehaviorEvent vce){
+		System.out.println("----------ENTROU NO LISTENER DISCIPLINA-------------");
+		this.disciplina = (Disciplina) vce.getSource();
+		System.out.println("DISCIPLINA: " + disciplina.getDescricao());
+	}
+	
+	public void valueChangedMes(ValueChangeEvent vce){
+		System.out.println("----------ENTROU NO LISTENER MÊS-------------");
+		this.mes = (String) vce.getNewValue();
+		System.out.println("MÊS: " + mes);
+	}
+	
 	@Override
 	protected List<Frequencia> handleResultList() {
+		//System.out.println("MÊS: " + mes);
+		//System.out.println("DISCIPLINAAAAAAAA" + disciplina.getDescricao());
 		return bc.findFrequeciaByAlunoAndDisciplinaAndMes(sessionMB.getAluno(), disciplina, mes);
 	}
 

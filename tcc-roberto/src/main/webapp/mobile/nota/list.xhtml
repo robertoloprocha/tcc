@@ -1,4 +1,3 @@
-
 <f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:pm="http://primefaces.org/mobile" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/template/main_mobile.xhtml" contentType="text/html" renderKitId="PRIMEFACES_MOBILE">
@@ -8,7 +7,7 @@
 		<pm:view id="main">
 			<pm:header title="Notas" />
 			<pm:content>
-				<h:outputText value="Aluno #{sessionMB.aluno.nome}" />
+				<h:outputText value="Aluno: #{sessionMB.aluno.nome}" />
 				<h:form>
 					<p:dataTable value="#{disciplinaListMB.resultList}" var="disciplina" emptyMessage="Não há disciplinas para o aluno">
 						<p:column headerText="Disciplina">
